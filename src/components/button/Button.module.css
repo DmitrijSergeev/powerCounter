@@ -1,0 +1,11 @@
+.btn {
+    font-size: 2rem;
+    background-color: #6fe0f8;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}

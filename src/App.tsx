@@ -1,11 +1,12 @@
 import './styles/App.css'
+import {Counter} from "./components/counter/Counter.tsx";
 
 function App() {
 
     return (
-        <>
-          That's counter
-        </>
+        <div className={'wrapper'}>
+          <Counter/>
+        </div>
     )
 }
 
