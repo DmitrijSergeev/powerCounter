@@ -1,11 +1,11 @@
 import './styles/App.css'
-import {Counter} from "./components/counter/Counter.tsx";
+import {Counter} from "./components/counter/Counter";
 
 function App() {
 
     return (
         <div className={'wrapper'}>
-          <Counter/>
+          <Counter id={1} min={2} max={10}/>
         </div>
     )
 }

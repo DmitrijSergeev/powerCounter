@@ -1,21 +1,18 @@
-import clsx from "clsx";
 import s from './Button.module.css'
+import clsx from "clsx";
 
-export type ButtonProps = {
-    onClick:() =>void
+type ButtonProps = {
     name: string
+    onClick: ()=>void
     disabled?: boolean
     className?: string
 }
 
-export const Button = (props: ButtonProps) => {
-    const {onClick, name, className, disabled} = props
-
+export const Button = ({name, className, disabled, onClick}: ButtonProps) => {
     return (
-        <button
-            className={clsx(s.btn, className)}
-            onClick={onClick}
-            disabled={disabled}
+        <button className={clsx(s.btn, className)}
+                disabled={disabled}
+                onClick={onClick}
         >
             {name}
         </button>

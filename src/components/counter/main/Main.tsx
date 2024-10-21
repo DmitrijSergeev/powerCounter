@@ -1,35 +1,20 @@
-import {Display} from "../display/Display";
-import {Controls} from "../controls/Controls";
+import {ButtonNames, ErrorStatuses} from "../../../features/Features";
 import {Button} from "../../button/Button";
 
-export type MainProps = {
+type MainProps = {
     status: string
-    setStatus: (status: string) => void
+    setStatus: (status: string)=>void
 }
-export const Main = (props: MainProps) => {
-    const {status, setStatus} = props
+export const Main = ({status, setStatus}: MainProps) => {
 
-    const setHandler = () => !status && setStatus('sss')
+    const setHandler = ()=> !status && setStatus(ErrorStatuses.change)
 
     return (
-        <>
-            <Display>
-                <span>That's Main</span>
-            </Display>
-            <Controls>
-                <Button
-                    onClick={()=>{}}
-                    name={'inc'}
-                />
-                <Button
-                    onClick={()=>{}}
-                    name={'reset'}
-                />
-                <Button
+        <div>
+            That's Main
+            <Button name={ButtonNames.set}
                     onClick={setHandler}
-                    name={'set'}
-                />
-            </Controls>
-        </>
+            />
+        </div>
     );
 };

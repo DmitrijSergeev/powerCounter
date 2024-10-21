@@ -1,25 +1,33 @@
-import {Main} from "./main/Main";
-import {Settings} from "./settings/Settings";
+import s from './Counter.module.css'
+import {Main} from "../../components/counter/main/Main";
+import {Settings} from "../../components/counter/settings/Settings";
 import {useState} from "react";
 
-export const Counter = () => {
+type CounterProps = {
+    id: number
+    min: number
+    max: number
+}
+export const Counter = ({max, min, id}: CounterProps) => {
+
     const [status, setStatus] = useState('')
 
     const setNewValuesHandler = () => {
         setStatus('')
+        console.log(status)
     }
 
     return (
-        <div>
-            {!status ? (
-                    <Main
-                    status={status}
-                    setStatus={setStatus}
+        <div className={s.container}>
+            {
+                !status ? (
+                    <Main status={status}
+                          setStatus={setStatus}
                     />
-            ) : (
-                <Settings
-                    setNewValuesHandler={setNewValuesHandler}
-                />
+                ) : (
+                    <Settings status={status}
+                              setNewValuesHandler={setNewValuesHandler}
+                    />
                 )
             }
         </div>

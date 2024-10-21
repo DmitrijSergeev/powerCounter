@@ -1,12 +1,12 @@
 import {ReactNode} from "react";
 import s from './Controls.module.css'
 
-type ControlProps = {
+type ControlsProps = {
     children: ReactNode
 }
-export const Controls = ({children}: ControlProps) => {
+export const Controls = ({children}: ControlsProps) => {
     return (
-        <div className={s.controlCounter}>
+        <div className={s.counterControl}>
             {children}
         </div>
     );

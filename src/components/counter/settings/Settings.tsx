@@ -1,23 +1,19 @@
-import {Display} from "../display/Display.tsx";
-import {Controls} from "../controls/Controls.tsx";
 import {Button} from "../../button/Button";
+import {ButtonNames} from "../../../features/Features";
 
-export type SettingsProps = {
+type SettingsProps = {
+    status: string
     setNewValuesHandler: ()=>void
 }
+export const Settings = ({status, setNewValuesHandler}: SettingsProps) => {
 
-export const Settings = (props: SettingsProps) => {
-    const {setNewValuesHandler} = props
+
     return (
-        <>
-
-            <Display>This is Settings</Display>
-            <Controls>
-                <Button
+        <div>
+            <span>{status}</span>
+            <Button name={ButtonNames.set}
                     onClick={setNewValuesHandler}
-                    name={'set'}
-                />
-            </Controls>
-        </>
+            />
+        </div>
     );
 };
