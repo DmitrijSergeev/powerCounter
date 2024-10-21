@@ -11,10 +11,21 @@ type CounterProps = {
 export const Counter = ({max, min, id}: CounterProps) => {
 
     const [status, setStatus] = useState('')
+    const [minValue, setMinValue] = useState(min)
+    const [maxValue, setMaxValue] = useState(max)
+    const [currentValue, setCurrentValue] = useState(minValue)
+
+    const incrementHandler = () => currentValue < maxValue && setCurrentValue(prev => prev + 1)
+
+    const resetHandler = () => currentValue > minValue && setCurrentValue(minValue)
 
     const setNewValuesHandler = () => {
-        setStatus('')
-        console.log(status)
+        if (status){
+            setStatus('')
+            localStorage.setItem(`counterMinValue/${id}`, JSON.stringify(minValue))
+            localStorage.setItem(`counterMaxValue/${id}`, JSON.stringify(maxValue))
+            setCurrentValue(minValue)
+        }
     }
 
     return (
@@ -23,6 +34,9 @@ export const Counter = ({max, min, id}: CounterProps) => {
                 !status ? (
                     <Main status={status}
                           setStatus={setStatus}
+                          incrementHandler={incrementHandler}
+                          currentValue={currentValue}
+                          resetHandler={resetHandler}
                     />
                 ) : (
                     <Settings status={status}
