@@ -1,20 +1,21 @@
 import s from './Button.module.css'
 import clsx from "clsx";
+import {ReactNode} from "react";
 
 type ButtonProps = {
-    name: string
     onClick: ()=>void
     disabled?: boolean
     className?: string
+    children: ReactNode
 }
 
-export const Button = ({name, className, disabled, onClick}: ButtonProps) => {
+export const Button = ({children, className, disabled, onClick}: ButtonProps) => {
     return (
         <button className={clsx(s.btn, className)}
                 disabled={disabled}
                 onClick={onClick}
         >
-            {name}
+            {children}
         </button>
     );
 };

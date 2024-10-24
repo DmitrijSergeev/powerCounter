@@ -1,35 +1,37 @@
-import {ButtonNames, ErrorStatuses} from "../../../features/Features";
-import {Button} from "../../button/Button";
 import {Display} from "../../display/Display";
 import {Controls} from "../../controls/Controls";
+import {Button} from "../../button/Button.tsx";
+import {ButtonNames, ErrorStatuses} from "../../../features/Features.ts";
 
 type MainProps = {
-    status: string
-    setStatus: (status: string)=>void
-    incrementHandler: ()=>void
-    resetHandler: ()=>void
     currentValue: number
+    status: string
+    setStatus:(status: string)=>void
 }
-export const Main = ({status, setStatus, incrementHandler, currentValue, resetHandler}: MainProps) => {
+
+export const Main = ({currentValue, setStatus, status}: MainProps) => {
 
     const setHandler = ()=> !status && setStatus(ErrorStatuses.change)
 
     return (
-        <div>
-            <h1>That's Main</h1>
-            <Display>{currentValue}</Display>
+        <>
+            <Display>
+                {currentValue}
+            </Display>
             <Controls>
-                <Button name={ButtonNames.inc}
-                        onClick={incrementHandler}
-                />
-                <Button name={ButtonNames.reset}
-                        onClick={resetHandler}
-                />
-                <Button name={ButtonNames.set}
-                        onClick={setHandler}
-                />
+                <Button onClick={()=>{}}
+                >
+                    {ButtonNames.inc}
+                </Button>
+                <Button onClick={()=>{}}
+                >
+                    {ButtonNames.reset}
+                </Button>
+                <Button onClick={setHandler}
+                >
+                    {ButtonNames.set}
+                </Button>
             </Controls>
-
-        </div>
+        </>
     );
 };
